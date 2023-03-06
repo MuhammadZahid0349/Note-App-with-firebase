@@ -73,22 +73,39 @@ class _HomeScreenState extends State<HomeScreen> {
                     }
                     return Text(
                       "Ther's no Notes",
-                      style: GoogleFonts.nunito(fontSize: 18.sp),
+                      style: GoogleFonts.nunito(
+                          fontSize: 18.sp, color: Colors.white),
                     );
                   }),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
+      floatingActionButton: Container(
+        height: 40.h,
+        width: 40.h,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50.r),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.white,
+                offset: Offset(0.7, 0.7),
+                blurRadius: 1.5,
+                spreadRadius: 2.5,
+              )
+            ]),
+        child: FloatingActionButton(
+          backgroundColor: AppStyle.mainColor,
           onPressed: () {
             Get.to(() => NoteEditorScreen());
           },
-          icon: const Icon(Icons.add),
-          label: Text(
-            "Add Note",
-            style: GoogleFonts.nunito(fontSize: 16.sp),
-          )),
+          child: Icon(
+            Icons.add,
+            size: 25.sp,
+          ),
+        ),
+      ),
     );
   }
 }
